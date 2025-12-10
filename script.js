@@ -3,6 +3,9 @@ const videos = [
     titulo: "METAMORPHOSIS [NEW]",
     archivo: "https://newbrothersstudios.github.io/GetBrainrotsFree/videos/METAMORPHOSIS(360P).mp4"
   }
+    titulo: "LOXKS edit [kathyzx",
+    archivo: "https://newbrothersstudios.github.io/GetBrainrotsFree/videos/VID-20251210-WA0000.mp4"
+  }
 ];
 
 const lista = document.getElementById("video-list");
