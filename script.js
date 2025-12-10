@@ -1,32 +1,32 @@
-// Lista de videos
+// Lista de videos disponibles en MiniTube
 const videos = [
-    {
-        title: "Video de prueba",
-        src: "https://raw.githubusercontent.com/newbrothersstudios/GetBrainrotsFree/main/videos/ssstik.io_@supery084_1760750295491 (1).mp4"
-    },
-    {
-        title: "Video 2",
-        src: "LINK-DE-TU-VIDEO-2.mp4"
-    },
-    {
-        title: "Video 3",
-        src: "LINK-DE-TU-VIDEO-3.mp4"
-    }
+  {
+    titulo: "Video 1",
+    archivo: "https://raw.githubusercontent.com/newbrothersstudios/GetBrainrotsFree/main/videos/ssstik.io_@supery084_1760750295491%20(1).mp4"
+  }
 ];
 
-// Cargar videos en el HTML
-const container = document.getElementById("video-list");
-
-videos.forEach(video => {
-    const card = document.createElement("div");
-    card.className = "video-card";
-
-    card.innerHTML = `
-        <video controls>
-            <source src="${video.src}" type="video/mp4">
-        </video>
-        <div class="video-title">${video.title}</div>
+// Cargar videos en la página
+function cargarVideos() {
+  const contenedor = document.getElementById("listaVideos");
+  
+  videos.forEach((v, index) => {
+    const item = document.createElement("div");
+    item.className = "video-item";
+    item.innerHTML = `
+      <p>${v.titulo}</p>
+      <button onclick="reproducir(${index})">Ver</button>
     `;
+    contenedor.appendChild(item);
+  });
+}
 
-    container.appendChild(card);
-});
+// Reproducir un video
+function reproducir(i) {
+  const player = document.getElementById("player");
+  player.src = videos[i].archivo;
+  player.play();
+}
+
+// Iniciar al cargar
+document.addEventListener("DOMContentLoaded", cargarVideos);
