@@ -1,6 +1,6 @@
 const videos = [
   {
-    titulo: "METAMORPHOSIS (♥ 76M)---(👎 1.9M)",
+    titulo: "METAMORPHOSIS de: Anderson",
     archivo: "https://newbrothersstudios.github.io/GetBrainrotsFree/videos/METAMORPHOSIS(360P).mp4",
     thumb: "https://i.ytimg.com/vi/rQ6go3f2gG8/hqdefault.jpg",
     likes: 76000000,
@@ -8,20 +8,20 @@ const videos = [
     views: 120000000
   },
   {
-    titulo: "LOXKS edit [kathyzx] (❤️ 62)----(👎 9)",
+    titulo: "LOXKS edit de: KTHZX",
     archivo: "https://newbrothersstudios.github.io/GetBrainrotsFree/videos/VID-20251210-WA0000.mp4",
     thumb: "https://i.ytimg.com/vi/aqz-KE-bpKQ/hqdefault.jpg",
-    likes: 62,
+    likes: 24,
     dislikes: 9,
-    views: 800
+    views: 62
   },
   {
-    titulo: "Ya es navidad! (❤️ 102)----(👎 5)",
+    titulo: "Ya es navidad! de: AceVDXZ",
     archivo: "https://newbrothersstudios.github.io/GetBrainrotsFree/videos/48f6c404ffb4b41be65fe4112501f0af.mp4",
     thumb: "https://i.ytimg.com/vi/tgbNymZ7vqY/hqdefault.jpg",
-    likes: 102,
+    likes: 62,
     dislikes: 5,
-    views: 3000
+    views: 92
   }
 ];
 
