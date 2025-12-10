@@ -1,197 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>¡Gana Brainrots!</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-* { box-sizing:border-box; margin:0; padding:0; }
-body {
-  font-family:'Inter',sans-serif;
-  background:#121212; /* fondo negro elegante */
-  color:#f9f9f9;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  min-height:100vh;
-  padding:40px 20px;
-}
-h1 { font-size:2.5rem; margin-bottom:10px; font-weight:700; text-align:center; }
-p.subtitle { font-size:1rem; color:#bbb; margin-bottom:30px; text-align:center; }
-.contenedor {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:25px;
-  width:100%;
-  max-width:1100px;
-}
-.item {
-  background:#1e1e1e; /* tarjetas ligeramente oscuras */
-  border-radius:18px;
-  padding:20px;
-  text-align:center;
-  box-shadow:0 10px 25px rgba(0,0,0,0.5);
-  transition:transform 0.3s ease, box-shadow 0.3s ease;
-  cursor:pointer;
-}
-.item:hover { transform:translateY(-8px); box-shadow:0 20px 40px rgba(0,0,0,0.7); }
-.item h2 { font-size:1.3rem; margin-bottom:10px; font-weight:600; color:#f9f9f9; }
-.precio { font-size:1.1rem; font-weight:600; margin-bottom:15px; color:#ffb800; }
-.boton {
-  background:#0071e3;
-  color:#fff;
-  border:none;
-  padding:12px 22px;
-  border-radius:12px;
-  font-weight:600;
-  cursor:pointer;
-  transition:transform 0.2s ease, background 0.2s ease;
-}
-.boton:hover { transform:scale(1.05); background:#005bb5; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniTube</title>
 
-/* Modal amarillo crema */
-.mensaje {
-  position:fixed; inset:0; display:none;
-  align-items:center; justify-content:center;
-  z-index:50; background:rgba(0,0,0,0.35);
-}
-.mensaje .box {
-  background:#fff8dc; border-radius:16px; padding:30px;
-  max-width:500px; width:90%; text-align:center;
-  box-shadow:0 15px 35px rgba(0,0,0,0.12);
-  animation:popin 0.4s ease;
-}
-@keyframes popin { 0%{transform:scale(0.8);opacity:0;} 100%{transform:scale(1);opacity:1;} }
-.mensaje h2 { font-size:1.3rem; margin-bottom:15px; color:#1c1c1c; }
-.mensaje p { font-size:1rem; color:#333; margin-bottom:20px; }
-.mensaje .actions button { margin:5px; }
-
-/* Overlay de proceso */
-.overlay {
-  position:fixed; inset:0; display:none;
-  align-items:center; justify-content:center;
-  z-index:60; text-align:center; padding:20px;
-  background:rgba(0,0,0,0.7);
-}
-.overlay.visible { display:flex; }
-.overlay .panel {
-  background:#1e1e1e; border-radius:16px; padding:25px 30px;
-  max-width:500px; width:90%; box-shadow:0 15px 35px rgba(0,0,0,0.7);
-  animation:fadein 0.5s ease;
-  color:#f9f9f9;
-}
-@keyframes fadein { from{opacity:0; transform:translateY(-20px);} to{opacity:1; transform:translateY(0);} }
-.loader {
-  width:70px; height:70px; border:6px solid #555; border-top-color:#0071e3;
-  border-radius:50%; margin:0 auto 15px; animation:spin 1s linear infinite;
-}
-@keyframes spin { to{transform:rotate(360deg);} }
-
-footer { margin-top:40px; color:#bbb; font-size:0.9rem; }
-</style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <h1>🎉 ¡Gana Brainrots! 🎉</h1>
-  <p class="subtitle">Haz clic en OBTENER!! y sigue las instrucciones para reclamar tu brainrot.</p>
-</header>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">MiniTube</div>
+    </header>
 
-<main class="contenedor">
-  <div class="item" onclick="abrirMensaje('Quesadilla Crocodila')">
-    <h2>Quesadilla Crocodila</h2>
-    <div class="precio">💰 4.7M</div>
-    <button class="boton">OBTENER!!</button>
-  </div>
-  <div class="item" onclick="abrirMensaje('Tralaleritos')">
-    <h2>Tralaleritos</h2>
-    <div class="precio">💰 750K</div>
-    <button class="boton">OBTENER!!</button>
-  </div>
-  <div class="item" onclick="abrirMensaje('Las Tortus')">
-    <h2>Las Tortus</h2>
-    <div class="precio">💰 3M</div>
-    <button class="boton">OBTENER!!</button>
-  </div>
-  <div class="item" onclick="abrirMensaje('Tralaleritas')">
-    <h2>Tralaleritas</h2>
-    <div class="precio">💰 650K</div>
-    <button class="boton">OBTENER!!</button>
-  </div>
-  <div class="item">
-    <h2>¡Muchos más!?</h2>
-    <div class="precio">📦 Próximamente</div>
-  </div>
-</main>
-
-<!-- Modal amarillo crema -->
-<div id="modal-mensaje" class="mensaje">
-  <div class="box">
-    <h2 id="modal-titulo">Antes de obtener ...</h2>
-    <p id="modal-texto">PRIMERO SIGUE ESTA CUENTA DE FB Y DALE LIKES A LAS 10 PRIMERAS PUBLICACIONES!!</p>
-    <div class="actions">
-      <button class="boton" id="abrir-fb">EMPEZAR (Ir a Facebook)</button>
-      <button class="boton" id="cerrar-modal">Cerrar</button>
+    <!-- CONTENIDO -->
+    <div class="container" id="video-list">
+        <!-- Los videos se cargan desde script.js -->
     </div>
-  </div>
-</div>
 
-<!-- Overlay de proceso -->
-<div id="overlay" class="overlay">
-  <div class="panel">
-    <div id="overlay-content"></div>
-  </div>
-</div>
-
-<footer>© 2025 Andersxn — Todos los derechos reservados</footer>
-
-<script>
-const fbProfileUrl = 'https://www.facebook.com/profile.php?id=61582803068237';
-const whatsappNumber = '50373826693'; // número corregido
-const whatsappMsg = encodeURIComponent('hola! Acabo de seguir la pagina quiero mi recompensa');
-
-const modal = document.getElementById('modal-mensaje');
-const modalTitulo = document.getElementById('modal-titulo');
-const modalTexto = document.getElementById('modal-texto');
-const abrirFbBtn = document.getElementById('abrir-fb');
-const cerrarModalBtn = document.getElementById('cerrar-modal');
-
-function abrirMensaje(nombre){
-  modalTitulo.innerText = `Antes de obtener ${nombre}`;
-  modalTexto.innerHTML = 'PRIMERO SIGUE ESTA CUENTA DE FB Y DALE LIKES A LAS 10 PRIMERAS PUBLICACIONES!!';
-  modal.style.display='flex';
-}
-
-abrirFbBtn.onclick = ()=> window.open(fbProfileUrl,'_blank');
-cerrarModalBtn.onclick = ()=> modal.style.display='none';
-
-const overlay = document.getElementById('overlay');
-const overlayContent = document.getElementById('overlay-content');
-let runningSeq=false;
-function delay(ms){ return new Promise(res=>setTimeout(res,ms)); }
-
-document.addEventListener('visibilitychange', ()=>{
-  if(document.visibilityState==='hidden') return;
-  if(runningSeq) return;
-  runVerificationSequence();
-});
-
-async function runVerificationSequence(){
-  runningSeq=true;
-  overlayContent.innerHTML=`<div class="loader"></div><h2>Cargando...</h2><p>Detectando que volviste a la página</p>`;
-  overlay.classList.add('visible');
-  await delay(4000);
-  overlayContent.innerHTML=`<div class="loader"></div><h2>Procesando tu seguimiento</h2><p>Por favor espera unos segundos...</p>`;
-  await delay(10000);
-  overlayContent.innerHTML=`<h2>¡Tu solicitud fue aceptada!</h2>`;
-  await delay(2000);
-  window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMsg}`,'_blank');
-  await delay(3000);
-  overlay.classList.remove('visible');
-  runningSeq=false;
-}
-</script>
-
+    <!-- JS -->
+    <script src="script.js"></script>
 </body>
-  </html>
+</html>
