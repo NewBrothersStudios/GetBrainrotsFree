@@ -6,8 +6,12 @@ const videos = [
   {
     titulo: "LOXKS edit [kathyzx]",
     archivo: "https://newbrothersstudios.github.io/GetBrainrotsFree/videos/VID-20251210-WA0000.mp4"
+  },
+  {
+    titulo: "Cats edit [NEW]",
+    archivo: "https://newbrothersstudios.github.io/GetBrainrotsFree/videos/48f6c404ffb4b41be65fe4112501f0af.mp4"
   }
-];
+  ];
 
 const lista = document.getElementById("video-list");
 const titulo = document.getElementById("video-title");
