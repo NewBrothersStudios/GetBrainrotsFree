@@ -1,7 +1,7 @@
 const videos = [
   {
-    titulo: "Video 1",
-    archivo: "https://newbrothersstudios.github.io/GetBrainrotsFree/videos/ssstik.io_@supery084_1760750295491%20(1).mp4"
+    titulo: "METAMORPHOSIS [NEW]",
+    archivo: "https://newbrothersstudios.github.io/GetBrainrotsFree/videos/METAMORPHOSIS(360P).mp4"
   }
 ];
 
