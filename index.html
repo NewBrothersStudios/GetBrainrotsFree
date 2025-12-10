@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MiniTube</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MiNiTuBe</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<h1>M!N¡Tuve<h1/>
 
-  <header>
-    <h1>MiniTube</h1>
-  </header>
+<div class="container">
+  <div class="player-box">
+    <h2 id="video-title">MiNiTuBe.com</h2>
+    <video id="video-player" controls></video>
 
-  <main>
-    <div id="video-list"></div>
-
-    <div id="player">
-      <h2 id="video-title">Selecciona un video</h2>
-      <video id="video-player" controls></video>
+    <div class="stats">
+      <span id="views">👁 0 vistas</span>
+      <span id="likes">❤️ 0</span>
+      <span id="dislikes">👎 0</span>
     </div>
-  </main>
+  </div>
 
-  <script src="script.js"></script>
+  <div id="video-list" class="video-list"></div>
+</div>
+
+<script src="scripts.js"></script>
 </body>
 </html>
