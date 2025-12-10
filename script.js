@@ -1,8 +1,8 @@
 // Lista de videos
 const videos = [
     {
-        title: "Video 1",
-        src: "LINK-DE-TU-VIDEO-1.mp4"
+        title: "Video de prueba",
+        src: "https://raw.githubusercontent.com/newbrothersstudios/GetBrainrotsFree/main/videos/ssstik.io_@supery084_1760750295491 (1).mp4"
     },
     {
         title: "Video 2",
